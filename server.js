@@ -1,4 +1,4 @@
-// Simple Node.js Forum (Educational / Demo Purpose)
+
 // Requirements: node >=18
 // Install deps: npm install express express-session sqlite3 bcrypt
 
@@ -11,7 +11,7 @@ const app = express();
 const db = new sqlite3.Database("forum.db");
 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(__dirname)); // serve style.css
+app.use(express.static(__dirname)); 
 app.use(
   session({
     secret: "dev-secret-change-me",
@@ -20,7 +20,7 @@ app.use(
   })
 );
 
-// --- Database setup ---
+
 db.serialize(() => {
   db.run(`CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -62,7 +62,7 @@ function page(title, body) {
 app.get("/", (req, res) => {
   db.all("SELECT * FROM posts ORDER BY created_at DESC", (err, posts) => {
     res.send(page("Forum", `
-      <h1>Simple Forum</h1>
+      <h1>Sheldonian Forum, Made by Nicholas Retardo</h1>
       <div class="nav">
         ${req.session.user
           ? `Logged in as <b>${req.session.user}</b> | <a href='/logout'>Logout</a>`
@@ -146,5 +146,6 @@ app.post("/post", requireLogin, (req, res) => {
   );
 });
 
-// --- Start server ---
-app.listen(3000, () => console.log("Forum running on http://localhost:3000"));
+// --- do thing  ---
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log("Forum running on port", PORT));
