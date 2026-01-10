@@ -1,7 +1,11 @@
+:root {
+  color-scheme: light dark;
+  prefers-color-scheme: light dark;
+}
 
 body {
   font-family: Arial, sans-serif;
-  background: #f4f6f8;
+  background: light-dark(#f4f6f8, #161616);
   margin: 0;
   padding: 0;
 }
@@ -13,14 +17,14 @@ h1, h2 {
 .container {
   max-width: 700px;
   margin: 40px auto;
-  background: white;
+  background: light-dark(white, #262626);
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px light-dark(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
 }
 
 a {
-  color: #2563eb;
+  color: light-dark(#2563eb, #95b7ff);
   text-decoration: none;
   margin: 0 5px;
 }
@@ -38,8 +42,9 @@ input, textarea {
   padding: 10px;
   margin-top: 10px;
   border-radius: 6px;
-  border: 1px solid #ccc;
+  border: 1px solid light-dark(#acacac, #666666);
   font-size: 14px;
+  box-sizing: border-box;
 }
 
 textarea {
@@ -64,7 +69,7 @@ button:hover {
 
 .post {
   padding: 10px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid light-dark(rgb(220, 220, 220), rgb(120, 120, 120));
 }
 
 .post:last-child {
@@ -83,4 +88,9 @@ button:hover {
 .nav {
   text-align: center;
   margin-bottom: 20px;
+}
+
+hr {
+  border-radius: 50vw;
+  border: solid 1px light-dark(rgb(220, 220, 220), rgb(120, 120, 120));
 }
