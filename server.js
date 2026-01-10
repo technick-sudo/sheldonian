@@ -1,6 +1,6 @@
 
 // Requirements: node >=18
-// Install deps: npm install express express-session sqlite3 bcrypt
+// Install deps: npm install
 
 const express = require("express");
 const session = require("express-session");
